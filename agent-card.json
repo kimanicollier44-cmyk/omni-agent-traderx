@@ -1,0 +1,48 @@
+{
+  "capabilities": [
+    "payments",
+    "defi",
+    "research",
+    "data",
+    "trading",
+    "mcp"
+  ],
+  "description": "All-in-One omni-agent-traderx - all-in-one agent for MoltForest on Monad: regime-aware BEAR inverse hedging, multi-asset routing, Muse portfolio layer, x402 micropayments.",
+  "endpoints": {
+    "agent_card": "/.well-known/agent-card.json",
+    "execute": "/v1/execute",
+    "mcp": "/mcp"
+  },
+  "erc8004": {
+    "chain": "eip155:143",
+    "identity_registry": "0x8004A169FB4a3325136EB29fA0ceB6D2e539a432",
+    "mint": "HOLD (erc8004_live_mint)",
+    "reputation_feedback": "HOLD (reputation_live_feedback)",
+    "reputation_registry": "0x8004BAa17C55a88189AE136b182e5fdA19dE9b63"
+  },
+  "live": "HOLD - offline simulation only",
+  "merged_sources": [
+    "Monad-Bearish-Bull",
+    "Quantum-TraderX",
+    "AI-Muse-Trading-Advanced-Elite-Agent",
+    "0mni-B0t",
+    "sandbox-api",
+    "HoneypotX",
+    "WEB3-insp3ct",
+    "sol-plex-problems"
+  ],
+  "name": "omni-agent-traderx",
+  "signer": "DEMO/OFFLINE (HMAC-SHA256 receipts)",
+  "version": "1.0.0",
+  "x402": {
+    "asset": "0x754704Bc059F8C67012fEd69BC8A327a5aafb603",
+    "chain": "eip155:143",
+    "facilitator": "https://x402-facilitator.molandak.org",
+    "maxAmountRequired": "10000",
+    "network": "monad-mainnet",
+    "payTo": "0x0000000000000000000000000000000000000000",
+    "resource": "/v1/execute",
+    "scheme": "exact",
+    "x402Version": 1
+  }
+}

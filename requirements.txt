@@ -1,0 +1,3 @@
+# Runtime: zero dependencies - Python 3.12 standard library only.
+# Dev/tests only:
+#   pytest
