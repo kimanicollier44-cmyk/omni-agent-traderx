@@ -7,20 +7,62 @@
     "trading",
     "mcp"
   ],
-  "description": "All-in-One omni-agent-traderx - all-in-one agent for MoltForest on Monad: regime-aware BEAR inverse hedging, multi-asset routing, Muse portfolio layer, x402 micropayments.",
+  "description": "All-in-One omni-agent-traderx - all-in-one agent for MoltForest on Monad: regime-aware BEAR inverse hedging, multi-asset routing, Muse portfolio layer, x402 micropayments. Fully functional: live paths activate on the operator's own env credentials.",
   "endpoints": {
     "agent_card": "/.well-known/agent-card.json",
     "execute": "/v1/execute",
     "mcp": "/mcp"
   },
   "erc8004": {
+    "agent_uri": "https://github.com/kimanicollier44-cmyk/omni-agent-traderx/blob/main/agent-card.json",
     "chain": "eip155:143",
     "identity_registry": "0x8004A169FB4a3325136EB29fA0ceB6D2e539a432",
-    "mint": "HOLD (erc8004_live_mint)",
-    "reputation_feedback": "HOLD (reputation_live_feedback)",
+    "registration": "implemented - register(string) calldata built in code, EIP-155 signed, submitted via eth_sendRawTransaction to MONAD_RPC_URL (erc8004_register)",
+    "reputation_feedback": "implemented - selector computed in code from REPUTATION_FEEDBACK_SIGNATURE (erc8004_reputation_feedback)",
     "reputation_registry": "0x8004BAa17C55a88189AE136b182e5fdA19dE9b63"
   },
-  "live": "HOLD - offline simulation only",
+  "live_config": {
+    "coinbase_live": [
+      "COINBASE_API_KEY",
+      "COINBASE_API_SECRET"
+    ],
+    "erc8004_registration": [
+      "AGENT_SIGNER_KEY",
+      "MONAD_RPC_URL"
+    ],
+    "erc8004_reputation": [
+      "AGENT_SIGNER_KEY",
+      "MONAD_RPC_URL"
+    ],
+    "hft_bridge_live": [
+      "HFT_BRIDGE_URL"
+    ],
+    "honeypot_listener": [],
+    "multi_asset_live": [
+      "HFT_BRIDGE_URL"
+    ],
+    "reddit_broadcast": [
+      "REDDIT_CLIENT_ID",
+      "REDDIT_CLIENT_SECRET",
+      "REDDIT_USERNAME",
+      "REDDIT_PASSWORD"
+    ],
+    "rpc_live_monitoring": [
+      "MONAD_RPC_URL"
+    ],
+    "x402_facilitator": [
+      "AGENT_PAY_TO",
+      "USDC_MONAD",
+      "PRICE_ATOMIC",
+      "AGENT_SIGNER_KEY"
+    ],
+    "x402_gateway": [
+      "AGENT_PAY_TO",
+      "USDC_MONAD",
+      "PRICE_ATOMIC",
+      "AGENT_SIGNER_KEY"
+    ]
+  },
   "merged_sources": [
     "Monad-Bearish-Bull",
     "Quantum-TraderX",
@@ -32,8 +74,14 @@
     "sol-plex-problems"
   ],
   "name": "omni-agent-traderx",
-  "signer": "DEMO/OFFLINE (HMAC-SHA256 receipts)",
-  "version": "1.0.0",
+  "posture": "Fully functional all-in-one Monad agent. Live paths activate on your own credentials (env); the offline demo + test-vector suite verifies every flow without them.",
+  "signer": {
+    "live_key_env": "AGENT_SIGNER_KEY",
+    "scheme": "secp256k1 ECDSA (RFC6979), EIP-191 personal-sign over receiptDigest",
+    "test_key_address": "0x7E5F4552091A69125d5DfCb7b8C2659029395Bdf",
+    "test_key_note": "demo receipts are signed with the TEST KEY (private key = 1) when AGENT_SIGNER_KEY is unset"
+  },
+  "version": "2.0.0",
   "x402": {
     "asset": "0x754704Bc059F8C67012fEd69BC8A327a5aafb603",
     "chain": "eip155:143",
